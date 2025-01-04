@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <OutDir>..\Bin\APP\</OutDir>
+	<AppendTargetFrameworkToOutDir>False</AppendTargetFrameworkToOutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenCatStoreAPI\OpenCatStoreAPI.csproj" />
+  </ItemGroup>
+
+</Project>
