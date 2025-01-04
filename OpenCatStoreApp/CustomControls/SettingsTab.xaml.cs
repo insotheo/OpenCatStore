@@ -38,6 +38,7 @@ namespace OpenCatStoreApp.CustomControls
         {
             AppDirectoryFolder.Text = StoreConfig.SaveAppsDirectory;
             ShowDirectoryCB.IsChecked = StoreConfig.ShowDirectoryOnFinish;
+            GithubAPIKeyPB.Password = StoreConfig.GithubAPIKey;
         }
 
         public void Save()
@@ -46,16 +47,17 @@ namespace OpenCatStoreApp.CustomControls
             {
                 SaveAppsDirectory = AppDirectoryFolder.Text,
                 ShowDirectoryOnFinish = (bool)ShowDirectoryCB.IsChecked,
+                GithubAPIKey = GithubAPIKeyPB.Password
             };
             string content = JsonConvert.SerializeObject(data, Formatting.Indented);
             if (!File.Exists(path))
             {
                 using (FileStream fs = File.Create(path)) { }
             }
+            File.WriteAllText(path, String.Empty);
             using (FileStream file = File.OpenWrite(path))
             {
                 file.Seek(0, SeekOrigin.Begin);
-                file.Write(new byte[] { }, 0, 0);
                 byte[] buffer = Encoding.UTF8.GetBytes(content);
                 file.Write(buffer, 0, buffer.Length);
             }
@@ -68,6 +70,7 @@ namespace OpenCatStoreApp.CustomControls
                 StoreConfigData data = JsonConvert.DeserializeObject<StoreConfigData>(File.ReadAllText(path));
                 StoreConfig.SetSaveAppDirectory(data.SaveAppsDirectory);
                 StoreConfig.SetShowDirectoryOnFinish(data.ShowDirectoryOnFinish);
+                StoreConfig.SetGithubAPIKey(data.GithubAPIKey);
             }
             catch (Exception ex)
             {

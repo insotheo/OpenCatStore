@@ -21,15 +21,11 @@
 
         <TabControl Grid.Row="1">
             <TabItem Header="LIBRARY">
-                <Grid>
-                    
-                </Grid>
+                
             </TabItem>
 
             <TabItem Header="STORE" IsSelected="True">
-                <Grid>
-                    
-                </Grid>
+                <ctrls:StoreSearchPage/>
             </TabItem>
 
             <TabItem Header="SETTINGS">

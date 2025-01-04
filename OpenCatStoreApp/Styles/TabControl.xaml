@@ -31,9 +31,6 @@
                 <Setter Property="FontSize" Value="30"/>
                 <Setter Property="FontWeight" Value="Bold"/>
             </Trigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource SecondaryBackgroundBrush}"/>
-            </Trigger>
         </Style.Triggers>
     </Style>
     

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace OpenCatStoreAPI
 {
@@ -6,6 +7,7 @@ namespace OpenCatStoreAPI
     {
         public static string SaveAppsDirectory { get; private set; }
         public static bool ShowDirectoryOnFinish { get; private set; }
+        public static string GithubAPIKey { get; private set; }
 
         public static void SetSaveAppDirectory(string path)
         {
@@ -18,12 +20,20 @@ namespace OpenCatStoreAPI
 
         public static void SetShowDirectoryOnFinish(bool value) => ShowDirectoryOnFinish = value;
 
+        public static void SetGithubAPIKey(string value)
+        {
+            GithubAPIKey = value;
+            GithubAPI.UpdateToken();
+        }
+
         public static void RestoreToDefault()
         {
             SaveAppsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "apps");
             if (!Directory.Exists(SaveAppsDirectory)) Directory.CreateDirectory(SaveAppsDirectory);
 
             ShowDirectoryOnFinish = true;
+
+            GithubAPIKey = String.Empty;
         }
 
     }
@@ -32,11 +42,13 @@ namespace OpenCatStoreAPI
     {
         public string SaveAppsDirectory;
         public bool ShowDirectoryOnFinish;
+        public string GithubAPIKey;
 
-        public StoreConfigData(string saveAppsDirectory, bool showDirectoryOnFinish)
+        public StoreConfigData(string saveAppsDirectory, bool showDirectoryOnFinish, string githubAPIKey)
         {
             SaveAppsDirectory = saveAppsDirectory;
             ShowDirectoryOnFinish = showDirectoryOnFinish;
+            GithubAPIKey = githubAPIKey;
         }
     }
 }

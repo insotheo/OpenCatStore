@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using OpenCatStoreAPI;
+using System;
+using System.Windows;
 
 namespace OpenCatStoreApp.Windows
 {
@@ -9,6 +11,15 @@ namespace OpenCatStoreApp.Windows
     {
         public MainWindow()
         {
+            try
+            {
+                GithubAPI.Init();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
             InitializeComponent();
             TopMenu.Init();
         }
