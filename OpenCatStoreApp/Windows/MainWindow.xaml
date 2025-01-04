@@ -16,7 +16,25 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        
         <ctrls:TopWindowMenu x:Name="TopMenu"/>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="LIBRARY">
+                <Grid>
+                    
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="STORE" IsSelected="True">
+                <Grid>
+                    
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="SETTINGS">
+                <ctrls:SettingsTab/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

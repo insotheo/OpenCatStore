@@ -15,7 +15,7 @@ namespace OpenCatStoreApp.CustomControls
 
             TopWindowGrid.MouseDown += WindowMove;
 
-            MinWindowBtn.Click += (object sender, RoutedEventArgs args) => 
+            MinWindowBtn.Click += (object sender, RoutedEventArgs args) =>
             {
                 StandartView(true);
                 Window.GetWindow(this).WindowState = WindowState.Minimized;
@@ -37,7 +37,7 @@ namespace OpenCatStoreApp.CustomControls
                 StandartView(false);
             };
 
-            CloseWindowBtn.Click += (object sender, RoutedEventArgs args) => 
+            CloseWindowBtn.Click += (object sender, RoutedEventArgs args) =>
             {
                 StandartView(true);
                 Window.GetWindow(this).Close();
@@ -66,7 +66,7 @@ namespace OpenCatStoreApp.CustomControls
 
         private void WindowMove(object sender, MouseButtonEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 Window.GetWindow(this).DragMove();
             }

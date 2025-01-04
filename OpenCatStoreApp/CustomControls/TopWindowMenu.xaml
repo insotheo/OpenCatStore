@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="800">
     <Grid Background="{StaticResource BorderBrush}" Name="TopWindowGrid">
-        <TextBlock Text="OpenCatStore 🐈‍" FontWeight="SemiBold" FontSize="28" VerticalAlignment="Center"/>
+        <TextBlock Text="OpenCatStore 🌙" FontWeight="SemiBold" FontSize="28" VerticalAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
             <Button Content="_" Name="MinWindowBtn"/>
