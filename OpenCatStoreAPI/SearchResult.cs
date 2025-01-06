@@ -13,11 +13,17 @@ namespace OpenCatStoreAPI
             public Owner Owner { get; set; }
             public string Description { get; set; }
             public string Language { get; set; }
+            public License License { get; set; }
         }
 
         public class Owner
         {
             public string Login { get; set; }
+        }
+
+        public class License
+        {
+            public string Name { get; set; }
         }
     }
 }

@@ -27,6 +27,8 @@
                 <TextBlock Text="Directory where to save downloaded apps:"/>
                 <TextBox Name="AppDirectoryFolder"/>
                 <CheckBox Name="ShowDirectoryCB" Content="Show directory on download finished" VerticalContentAlignment="Center"/>
+                <CheckBox Name="AutomaticallyUnpackCB" Content="Automatically unpack *.zip files" VerticalContentAlignment="Center"/>
+                <CheckBox Name="SendNotificationCB" Content="Send me a notification on download finished" VerticalContentAlignment="Center"/>
                 <TextBlock Text="Enter your Github API key:"/>
                 <PasswordBox Name="GithubAPIKeyPB"/>
             </StackPanel>

@@ -1,4 +1,5 @@
 ﻿using OpenCatStoreAPI;
+using OpenCatStoreApp.Windows;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,6 +12,7 @@ namespace OpenCatStoreApp.CustomControls
     /// </summary>
     public partial class StoreSearchPage : UserControl
     {
+
         public StoreSearchPage()
         {
             InitializeComponent();
@@ -18,6 +20,7 @@ namespace OpenCatStoreApp.CustomControls
             BrowseBtn.Click += Browse;
             SearchQueryTB.KeyDown += SearchQueryTB_KeyDown;
         }
+
 
         private void SearchQueryTB_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {

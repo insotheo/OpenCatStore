@@ -39,6 +39,8 @@ namespace OpenCatStoreApp.CustomControls
             AppDirectoryFolder.Text = StoreConfig.SaveAppsDirectory;
             ShowDirectoryCB.IsChecked = StoreConfig.ShowDirectoryOnFinish;
             GithubAPIKeyPB.Password = StoreConfig.GithubAPIKey;
+            AutomaticallyUnpackCB.IsChecked = StoreConfig.AutomaticallyUnpackZips;
+            SendNotificationCB.IsChecked = StoreConfig.SendNotificationOnFinish;
         }
 
         public void Save()
@@ -47,8 +49,17 @@ namespace OpenCatStoreApp.CustomControls
             {
                 SaveAppsDirectory = AppDirectoryFolder.Text,
                 ShowDirectoryOnFinish = (bool)ShowDirectoryCB.IsChecked,
-                GithubAPIKey = GithubAPIKeyPB.Password
+                GithubAPIKey = GithubAPIKeyPB.Password,
+                AutomaticallyUnpackZip = (bool)AutomaticallyUnpackCB.IsChecked,
+                SendNotificationOnFinish = (bool)SendNotificationCB.IsChecked,
             };
+
+            StoreConfig.SetSaveAppDirectory(data.SaveAppsDirectory);
+            StoreConfig.SetShowDirectoryOnFinish(data.ShowDirectoryOnFinish);
+            StoreConfig.SetGithubAPIKey(data.GithubAPIKey);
+            StoreConfig.SetAutomaticallyUnpackZips(data.AutomaticallyUnpackZip);
+            StoreConfig.SetSendNotificationOnFinish(data.SendNotificationOnFinish);
+
             string content = JsonConvert.SerializeObject(data, Formatting.Indented);
             if (!File.Exists(path))
             {
@@ -71,6 +82,8 @@ namespace OpenCatStoreApp.CustomControls
                 StoreConfig.SetSaveAppDirectory(data.SaveAppsDirectory);
                 StoreConfig.SetShowDirectoryOnFinish(data.ShowDirectoryOnFinish);
                 StoreConfig.SetGithubAPIKey(data.GithubAPIKey);
+                StoreConfig.SetAutomaticallyUnpackZips(data.AutomaticallyUnpackZip);
+                StoreConfig.SetSendNotificationOnFinish(data.SendNotificationOnFinish);
             }
             catch (Exception ex)
             {

@@ -21,7 +21,7 @@
 
         <TabControl Grid.Row="1">
             <TabItem Header="LIBRARY">
-                
+                <ctrls:LibraryPage x:Name="LibPage"/>
             </TabItem>
 
             <TabItem Header="STORE" IsSelected="True">

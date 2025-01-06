@@ -1,0 +1,22 @@
+﻿<Window x:Class="OpenCatStoreApp.Windows.VersionSelectorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenCatStoreApp.Windows"
+        mc:Ignorable="d"
+        xmlns:ctrls="clr-namespace:OpenCatStoreApp.CustomControls"
+        Height="700" Width="700"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        Background="{StaticResource PrimaryBackgroundBrush}"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ctrls:TopWindowMenu x:Name="TopMenu"/>
+        <ListBox Name="VersionsLB" Grid.Row="1" HorizontalContentAlignment="Stretch"/>
+    </Grid>
+</Window>

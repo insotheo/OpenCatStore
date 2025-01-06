@@ -8,6 +8,8 @@ namespace OpenCatStoreAPI
         public static string SaveAppsDirectory { get; private set; }
         public static bool ShowDirectoryOnFinish { get; private set; }
         public static string GithubAPIKey { get; private set; }
+        public static bool AutomaticallyUnpackZips { get; private set; }
+        public static bool SendNotificationOnFinish { get; private set; }
 
         public static void SetSaveAppDirectory(string path)
         {
@@ -26,6 +28,10 @@ namespace OpenCatStoreAPI
             GithubAPI.UpdateToken();
         }
 
+        public static bool SetAutomaticallyUnpackZips(bool value) => AutomaticallyUnpackZips = value;
+
+        public static bool SetSendNotificationOnFinish(bool value) => SendNotificationOnFinish = value;
+
         public static void RestoreToDefault()
         {
             SaveAppsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "apps");
@@ -34,6 +40,9 @@ namespace OpenCatStoreAPI
             ShowDirectoryOnFinish = true;
 
             GithubAPIKey = String.Empty;
+
+            AutomaticallyUnpackZips = false;
+            SendNotificationOnFinish = false;
         }
 
     }
@@ -43,12 +52,16 @@ namespace OpenCatStoreAPI
         public string SaveAppsDirectory;
         public bool ShowDirectoryOnFinish;
         public string GithubAPIKey;
+        public bool AutomaticallyUnpackZip;
+        public bool SendNotificationOnFinish;
 
-        public StoreConfigData(string saveAppsDirectory, bool showDirectoryOnFinish, string githubAPIKey)
+        public StoreConfigData(string saveAppsDirectory, bool showDirectoryOnFinish, string githubAPIKey, bool autoUnpack, bool sendNotification)
         {
             SaveAppsDirectory = saveAppsDirectory;
             ShowDirectoryOnFinish = showDirectoryOnFinish;
             GithubAPIKey = githubAPIKey;
+            AutomaticallyUnpackZip = autoUnpack;
+            SendNotificationOnFinish = sendNotification;
         }
     }
 }
